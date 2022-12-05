@@ -33,7 +33,9 @@ def test_train_pipeline():
     )
     assert not os.path.exists(path_to_output), f'{path_to_output} exists'
     assert not os.path.exists(path_to_metrics), f'{path_to_metrics} exists'
-    train_pipeline(train_pipeline_params)
+    metrics = train_pipeline(train_pipeline_params)
+    for metric, score in metrics.items():
+        assert 0 <= score <= 1, f'{metric} is a bad value'
 
 
 def test_predict_pipeline():
