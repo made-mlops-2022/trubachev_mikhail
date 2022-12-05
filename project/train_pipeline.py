@@ -31,6 +31,7 @@ def train_pipeline(params: TrainConfig):
         logger.info(f"Model metrics saved by {params.path_to_metrics}")
     save_model(model, params.path_to_model)
     logger.info(f"Model saved by {params.path_to_model}")
+    return metrics
 
 
 @click.command(name="train_pipeline")
